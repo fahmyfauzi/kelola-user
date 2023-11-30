@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema({
   noHp: {
     type: String,
     unique: true,
-    validate: validator.isMobilePhone("id-ID"),
+    validate: validator.isMobilePhone,
   },
   status: {
     type: String,

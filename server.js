@@ -4,9 +4,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import morgan from "morgan";
 import colors from "colors";
+import "express-async-errors";
 
 //import files
 import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoute.js";
+import errorHandler from "./middlewares/errorMiddleware.js";
 
 //setup dotenv
 dotenv.config();
@@ -22,10 +25,10 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
 
-//routes
-app.get("/", (req, res) => {
-  res.send("hello world!");
-});
+//route
+app.use("/api/v1/auth", authRoutes);
+
+app.use(errorHandler);
 
 //port
 const port = process.env.PORT || 3000;
