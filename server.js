@@ -5,8 +5,14 @@ import cors from "cors";
 import morgan from "morgan";
 import colors from "colors";
 
+//import files
+import connectDB from "./config/db.js";
+
 //setup dotenv
 dotenv.config();
+
+//connect mongodb
+connectDB();
 
 //rest object
 const app = express();
