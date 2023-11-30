@@ -1,0 +1,11 @@
+{
+  "name": "kelola-user",
+  "version": "1.0.0",
+  "description": "belajar backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fahmyfauzi",
+  "license": "ISC"
+}
