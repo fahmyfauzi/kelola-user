@@ -78,6 +78,7 @@ const login = async(req, res, next) => {
                     id: user.id,
                     email: user.email,
                     nama: user.nama,
+                    role: user.role,
                 },
             },
             process.env.SECRET_KEY, { expiresIn: '1d' }
