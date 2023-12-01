@@ -8,7 +8,7 @@ import { getAllAdmin, getAllCustomer } from '../controllers/kelolaController.js'
 const router = express.Router();
 
 //route bisa diakses oleh user biasa
-router.get('/customer', verifyToken, getAllCustomer);
-router.get('/admin', verifyToken, getAllAdmin);
+router.get('/customer', getAllCustomer);
+router.get('/admin', getAllAdmin);
 
 export default router;
