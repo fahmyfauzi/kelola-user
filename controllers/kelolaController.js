@@ -116,4 +116,23 @@ const deleteCustomersHandler = async (req, res, next) => {
   res.status(200).json({ message: 'Succes customer deleted!' });
 };
 
-export { getAllCustomer, getAllAdmin, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler, deleteCustomersHandler };
+const updateCustomer = async (req, res, next) => {
+  const { id } = req.params;
+
+  const customer = await Customer.findOne({ _id: id });
+
+  if (!customer) {
+    next(`Customer dengan ID ${id} tidak ditemukan`);
+  }
+
+  const updateCustomer = await Customer.findByIdAndUpdate({ _id: id }, req.body, {
+    new: true,
+    runValidator: true,
+  });
+
+  res.status(200).json({
+    message: 'Succes customer updated!',
+  });
+};
+
+export { getAllCustomer, getAllAdmin, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler, deleteCustomersHandler, updateCustomer };
