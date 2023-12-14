@@ -17,7 +17,6 @@ const customerSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['Lolos', 'Tidak Lolos'],
   },
   photoProfile: {
     type: String,
