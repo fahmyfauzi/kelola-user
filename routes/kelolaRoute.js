@@ -3,7 +3,7 @@ import express from 'express';
 
 //import files
 import { verifyToken, verifyTokenAndAdmin } from '../middlewares/authMiddleware.js';
-import { getAllAdmin, getAllCustomer, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler } from '../controllers/kelolaController.js';
+import { getAllAdmin, getAllCustomer, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler, deleteCustomersHandler } from '../controllers/kelolaController.js';
 
 const router = express.Router();
 
@@ -13,6 +13,7 @@ router.get('/admins', getAllAdmin);
 
 //crud
 router.get('/customers', getCustomersHandler);
+router.delete('/customers/:id', deleteCustomersHandler);
 router.post('/customers', addCustomerHandler);
 
 router.get('/admin', getAdminHandler);

@@ -104,4 +104,16 @@ const getAdminHandler = async (req, res, next) => {
   });
 };
 
-export { getAllCustomer, getAllAdmin, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler };
+const deleteCustomersHandler = async (req, res, next) => {
+  const { id } = req.params;
+
+  const customer = await Customer.findOne({ _id: id });
+
+  if (!customer) {
+    next(`Customer dengan ID ${id} tidak ditemukan`);
+  }
+  await Customer.deleteOne();
+  res.status(200).json({ message: 'Succes customer deleted!' });
+};
+
+export { getAllCustomer, getAllAdmin, addCustomerHandler, getCustomersHandler, addAdminHandler, getAdminHandler, deleteCustomersHandler };
