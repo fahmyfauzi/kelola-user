@@ -112,7 +112,7 @@ const deleteCustomersHandler = async (req, res, next) => {
   if (!customer) {
     next(`Customer dengan ID ${id} tidak ditemukan`);
   }
-  await Customer.deleteOne();
+  await Customer.deleteOne({ _id: id });
   res.status(200).json({ message: 'Succes customer deleted!' });
 };
 
